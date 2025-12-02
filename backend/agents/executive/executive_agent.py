@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, END
 from .state import AgentState
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from config import settings
 
@@ -14,7 +14,7 @@ class Router(BaseModel):
     )
 
 def executive_node(state: AgentState):
-    llm = ChatOpenAI(model="gpt-4-turbo", api_key=settings.OPENAI_API_KEY)
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=settings.GOOGLE_API_KEY)
     structured_llm = llm.with_structured_output(Router)
     
     system_prompt = (

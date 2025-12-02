@@ -32,8 +32,8 @@ class Settings(BaseSettings):
     NEO4J_USER: str = "neo4j"
     NEO4J_PASSWORD: str = "password"
 
-    # OpenAI / LLM (if using OpenAI for agents)
-    OPENAI_API_KEY: Optional[str] = None
+    # Google Gemini API Key
+    GOOGLE_API_KEY: str
 
     class Config:
         env_file = ".env"
